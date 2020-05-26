@@ -1,3 +1,13 @@
-const app = async () => '#BuildforSDG';
+import React from 'react';
+import LandingPage from './LandingPage/LandingPage';
+import SideNavBar from './SideNavBar';
 
-export default app;
+function App() {
+  return (
+    <div className="App">
+      <LandingPage />
+    </div>
+  );
+}
+
+export default App;
