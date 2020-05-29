@@ -14,7 +14,7 @@ body {
 #sidebar-wrapper .sidebar-heading {
   padding: 1rem 1rem;
   font-size: 1rem;
-  color: #ffffff;
+  color: #fff;
 }
 
 #sidebar-wrapper .list-group {
@@ -51,6 +51,7 @@ header {
   background: #0b69f5;
   align-items: center;
 }
+
 .logo {
   flex: 1;
   display: inline-block;
@@ -60,13 +61,15 @@ header {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .headertxt {
   color: #ffffff;
-  font-family: Tahoma;
+  font-family: Helvetica, Arial, Verdana, Tahoma;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 1.75px;
 }
+
 .flex_r_j_between_align_center {
   display: flex;
   flex-direction: row;
