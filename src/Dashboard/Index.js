@@ -110,7 +110,7 @@ const Dashboard = () => {
                     <p>Payable Amount: $10,000</p>
                     <div className="input-group">
                       <p>
-                        <strong>Outstanding Payment</strong>
+                        <strong>Outstanding Payment </strong>
                       </p>
                       <div className="checkbox">
                         <label>

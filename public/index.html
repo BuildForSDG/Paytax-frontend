@@ -59,9 +59,12 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      $('#menu-toggle').click(function (e) {
-        e.preventDefault();
-        $('#wrapper').toggleClass('toggled');
+      jQuery(document).ready(function ($) {
+        $('#menu-toggle').click(function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          $('#wrapper').toggleClass('toggled');
+        });
       });
     </script>
   </body>
