@@ -63,8 +63,8 @@ header {
 }
 
 .headertxt {
-  color: #ffffff;
-  font-family: Helvetica, Arial, Verdana, Tahoma;
+  color: #fff;
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 1.75px;
