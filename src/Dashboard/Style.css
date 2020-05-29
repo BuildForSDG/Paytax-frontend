@@ -5,10 +5,10 @@ body {
 #sidebar-wrapper {
   min-height: 100vh;
   margin-left: -15rem;
-  -webkit-transition: margin .25s ease-out;
-  -moz-transition: margin .25s ease-out;
-  -o-transition: margin .25s ease-out;
-  transition: margin .25s ease-out;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -44,56 +44,56 @@ body {
   }
 }
 
-header{ 
-   display: flex;
-   height: 70px;
-   padding: 10px;
-   background: #0b69f5;
-   align-items: center;
+header {
+  display: flex;
+  height: 70px;
+  padding: 10px;
+  background: #0b69f5;
+  align-items: center;
 }
-.logo{
-flex:1;
-display: inline-block;
-justify-content: center;
-margin: 20px;
-color: #fff;
-font-weight: bold;
-font-family: Arial, Helvetica, sans-serif;
+.logo {
+  flex: 1;
+  display: inline-block;
+  justify-content: center;
+  margin: 20px;
+  color: #fff;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.headertxt{
-color: #ffffff;
-font-family: Tahoma;
-font-size: 12px;
-font-weight: 400;
-letter-spacing: 1.75px;
+.headertxt {
+  color: #ffffff;
+  font-family: Tahoma;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.75px;
 }
 .flex_r_j_between_align_center {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   align-items: center;
- }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .right_side .username {
-   padding-left: 20px;
- }
- 
- .right_side .username img {
-   border-radius: 50%;
-   background-color: #FFE3E3;
-   height: 50px;
-   width: 50px;
-   margin-right: 10px;
- }
- 
- .right_side .username h6 {
-    color: #fff;
-   font-size: 16px;
-   line-height: 30px;
-   text-transform: capitalize;
-   margin-right: 20px;
- }
- .sidebg{
-   background-image: url(side_bar.svg);
-   width: 15rem;
- }
+  padding-left: 20px;
+}
+
+.right_side .username img {
+  border-radius: 50%;
+  background-color: #ffe3e3;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.right_side .username h6 {
+  color: #fff;
+  font-size: 16px;
+  line-height: 30px;
+  text-transform: capitalize;
+  margin-right: 20px;
+}
+.sidebg {
+  background-image: url(side_bar.svg);
+  width: 15rem;
+}
