@@ -1,6 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+=======
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/05ba65a962f94dbc89b160bb91edee06)](https://www.codacy.com/gh/BuildForSDG/Paytax-frontend?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BuildForSDG/Paytax-frontend&amp;utm_campaign=Badge_Grade)
+
 
 In the project directory, you can run:
 
