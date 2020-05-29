@@ -96,6 +96,7 @@ header {
   text-transform: capitalize;
   margin-right: 20px;
 }
+
 .sidebg {
   background-image: url(side_bar.svg);
   width: 15rem;
