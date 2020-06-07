@@ -97,7 +97,7 @@ export const login = (taxPayerId, password) => async dispatch => {
       payload: res.data
     });
     // dispatch(loadUser());
-    dispatch(window.location.href = '/success');
+    dispatch(window.location.href = '/dashboard');
     } else {
       dispatch(setAlert(res.data[0], 'error'));
     }
