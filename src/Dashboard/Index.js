@@ -4,13 +4,14 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import './Style.css';
 import { loadUser, logout } from '../actions/auth';
-import { calaculatePit, paystackPayment } from '../actions/tax';
+import { calaculatePit, paystackPayment, taxTypes } from '../actions/tax';
 
-const Dashboard = ({ calaculatePit, paystackPayment, loadUser, logout, auth: { user } }) => {
+const Dashboard = ({ calaculatePit, paystackPayment, loadUser, logout, taxTypes, auth: { user }, tax }) => {
 
   useEffect(() => {
     loadUser();
-  }, [loadUser]);
+    taxTypes();
+  }, [loadUser, taxTypes]);
 
   const [formData, setFormData] = useState({
     income: ''
@@ -170,22 +171,27 @@ const Dashboard = ({ calaculatePit, paystackPayment, loadUser, logout, auth: { u
                   <div className="card-text">
                     <h6>Others</h6>
                     <hr />
-                    <p>Use the dropdown</p>
                     <div className="input-group">
-                      <select name="others" id="others" className="form-control">
-                        <option value="Other Taxes">Other Taxes</option>
-                      </select>
+                    <select name='selectothers'
+                    className='form-control'
+                    onChange={e => onChange(e)}>
+                    <option>Other Taxes</option>
+              {tax.taxtypes.length > 0 ? (
+               tax.taxtypes.map(tax => (
+                  <option key={tax._id} value={tax._id}>
+                    {tax.name}
+                  </option>
+                ))
+              ) : (
+                <option>None Found...</option>
+              )}
+            </select>
                     </div>
                     <br />
                     <div className="input-group">
-                      <input type="text" className="form-control" name="amount" placeholder="Enter Amount" />
+                      <input type="text" className="form-control" name="amountOther" placeholder="Enter Amount" />
                     </div>
                     <br />
-                    <div className="input-group">
-                      <p>
-                        <strong>Payable Amount: </strong>$10,000
-                      </p>
-                    </div>
                     <div className="text-center">
                       <button type="submit" className="btn btn-primary btn-lg btn-block text-center">
                         Pay
@@ -215,31 +221,31 @@ const Dashboard = ({ calaculatePit, paystackPayment, loadUser, logout, auth: { u
                         <th scope="row">1</th>
                         <td>2020</td>
                         <td>January</td>
-                        <td>$10,000</td>
+                        <td>₦ 10,000</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
                         <td>2020</td>
                         <td>Febuary</td>
-                        <td>$10,000</td>
+                        <td>₦ 10,000</td>
                       </tr>
                       <tr>
                         <th scope="row">3</th>
                         <td>2020</td>
                         <td>March</td>
-                        <td>$10,000</td>
+                        <td>₦ 10,000</td>
                       </tr>
                       <tr>
                         <th scope="row">4</th>
                         <td>2020</td>
                         <td>April</td>
-                        <td>$10,000</td>
+                        <td>₦ 10,000</td>
                       </tr>
                       <tr>
                         <th scope="row">5</th>
                         <td>2020</td>
                         <td>May</td>
-                        <td>$10,000</td>
+                        <td>₦ 10,000</td>
                       </tr>
                     </tbody>
                   </table>
@@ -255,14 +261,17 @@ const Dashboard = ({ calaculatePit, paystackPayment, loadUser, logout, auth: { u
 
 Dashboard.protoTypes = {
   auth: PropTypes.object.isRequired,
+  tax: PropTypes.object.isRequired,
   logout: PropTypes.func.isRequired,
   loadUser: PropTypes.func.isRequired,
   calaculatePit: PropTypes.func.isRequired,
-  paystackPayment: PropTypes.func.isRequired
+  paystackPayment: PropTypes.func.isRequired,
+  taxTypes: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.auth
+  auth: state.auth,
+  tax: state.tax,
 });
 
-export default connect(mapStateToProps, { loadUser, calaculatePit, logout, paystackPayment })(Dashboard);
+export default connect(mapStateToProps, { loadUser, calaculatePit, logout, paystackPayment, taxTypes })(Dashboard);
