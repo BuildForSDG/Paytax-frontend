@@ -141,7 +141,7 @@ export default function SideNavBar() {
         </List>
         <Divider />
         <List>
-          {[, 'FAQ', 'Log Out'].map((text, index) => (
+          {['FAQ', 'Log Out'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
