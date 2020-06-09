@@ -37,15 +37,6 @@ const LandingPage = ({ signup, login, auth }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // const formDataSignup = new FormData();
-    // formDataSignup.append('company', company);
-    // formDataSignup.append('name', name);
-    // formDataSignup.append('address', address);
-    // formDataSignup.append('email', email);
-    // formDataSignup.append('maritalStatus', maritalStatus);
-    // formDataSignup.append('phone', phone);
-    // formDataSignup.append('status', status);
-    // formDataSignup.append('gender', gender);
     signup(formData);
   };
 

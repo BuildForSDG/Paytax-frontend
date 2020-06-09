@@ -10,3 +10,7 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const GET_PROFILE = 'GET_PROFILE';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const CLEAR_USER = 'CLEAR_USER';
+export const CALCULATE_PIT = 'CALCULATE_PIT';
+export const TAX_TYPES = 'TAX_TYPES';
+export const TAX_ERROR = 'TAX_ERROR';
+export const PAYSTACK_PAYMENT = 'PAYSTACK_PAYMENT';

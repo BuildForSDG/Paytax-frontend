@@ -21,7 +21,7 @@ export const loadUser = () => async dispatch => {
   }else{
     console.log('no token')
   }
-  const loadUserApi = `${url}/:taxID`;
+  const loadUserApi = `${url}/${localStorage.taxId}`;
   
   try {
     const config = {
@@ -30,6 +30,7 @@ export const loadUser = () => async dispatch => {
       }
     };
     const res = await Axios.get(loadUserApi, config);
+    console.log(res.data);
 
     dispatch({
       type: USER_LOADED,
@@ -96,8 +97,8 @@ export const login = (taxPayerId, password) => async dispatch => {
       type: LOGIN_SUCCESS,
       payload: res.data
     });
-    // dispatch(loadUser());
-    dispatch(window.location.href = '/dashboard');
+    console.log(res.data)
+    dispatch(loadUser());
     } else {
       dispatch(setAlert(res.data[0], 'error'));
     }
@@ -105,6 +106,7 @@ export const login = (taxPayerId, password) => async dispatch => {
     
   } catch(error) {
     console.log(error)
+    dispatch(setAlert('Invalid Login, Try Again', 'error'));
     // dispatch(setAlert(error, 'error'))
   //   error.map(sweetItem => {
   //     return dispatch(setAlert(sweetItem, 'error'))

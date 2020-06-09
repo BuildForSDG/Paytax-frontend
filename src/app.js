@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
@@ -10,8 +10,20 @@ import LandingPage from './LandingPage/LandingPage';
 import Dashboard from './Dashboard/Index';
 import Alert from './Alert/Alert';
 import Success from './LandingPage/Success';
+import { loadUser } from './actions/auth';
+import setAuthToken from './Utils/setAuthToken';
+import PrivateRoute from './routing/PrivateRoute';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
+
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
   return (
     <Provider store={store}>
       <Router forceRefresh={true}>
@@ -31,7 +43,7 @@ const App = () => {
           <Alert />
           <div className="App">
             <Switch>
-              <Route path="/dashboard" exact component={Dashboard} />
+              <PrivateRoute path="/dashboard" exact component={Dashboard} />
               <Route path="/success" exact component={Success} />
               <Route path="/" exact component={LandingPage} />
             </Switch>
