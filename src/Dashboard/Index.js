@@ -4,9 +4,10 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import './Style.css';
 import { loadUser, logout } from '../actions/auth';
-import { calaculatePit, paystackPayment, taxTypes } from '../actions/tax';
+import { calaculatePit, taxTypes, verifyPaystack } from '../actions/tax';
+import { PaystackButton } from 'react-paystack';
 
-const Dashboard = ({ calaculatePit, paystackPayment, loadUser, logout, taxTypes, auth: { user }, tax }) => {
+const Dashboard = ({ calaculatePit, loadUser, logout, taxTypes, auth: { user }, tax }) => {
 
   useEffect(() => {
     loadUser();
@@ -14,10 +15,11 @@ const Dashboard = ({ calaculatePit, paystackPayment, loadUser, logout, taxTypes,
   }, [loadUser, taxTypes]);
 
   const [formData, setFormData] = useState({
-    income: ''
+    income: '',
+    paySuccess: ''
   });
 
-  const { income } = formData;
+  const { income, paySuccess } = formData;
 
   const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -26,16 +28,24 @@ const Dashboard = ({ calaculatePit, paystackPayment, loadUser, logout, taxTypes,
     calaculatePit(income, user && user.taxPayerId);
   };
 
-  const onSubmit2 = (e) => {
-    e.preventDefault();
-    const formPay = {
-      name: user && user.businessName,
-      amount: user && user.paymentIncomeTax,
-      email: user && user.email,
-      tax_type: 'PIT'
-    };
-    paystackPayment(formPay);
-    console.log(formPay);
+  const config = {
+    reference: (new Date()).getTime(),
+    email: user && user.email,
+    amount: parseInt(user && user.paymentIncomeTax) * 100,
+    publicKey: 'pk_test_1ca60b2a2bd97e196ce315722aefe15b18453231',
+    metadata: {
+      taxpayer: user && user.businessName,
+      tax_type: 'PIT',
+    }
+};
+
+  const componentProps  = {
+      ...config,
+      text: 'Pay',
+      onSuccess: (response) => {
+        console.log(response);
+      },
+      onClose: () => null
   };
 
   return (
@@ -161,9 +171,10 @@ const Dashboard = ({ calaculatePit, paystackPayment, loadUser, logout, taxTypes,
                       </p>
                     </div>
                     <div className="text-center">
-                      <button type="submit" onClick={(e) => onSubmit2(e)} className="btn btn-primary btn-lg btn-block text-center">
+                      {/* <button type="submit" onClick={(e) => onSubmit2(e)} className="btn btn-primary btn-lg btn-block text-center">
                         Pay
-                      </button>
+                      </button> */}
+                      <PaystackButton className='btn btn-primary' {...componentProps} />
                     </div>
                     <br />
                     <br />
@@ -265,7 +276,6 @@ Dashboard.protoTypes = {
   logout: PropTypes.func.isRequired,
   loadUser: PropTypes.func.isRequired,
   calaculatePit: PropTypes.func.isRequired,
-  paystackPayment: PropTypes.func.isRequired,
   taxTypes: PropTypes.func.isRequired
 };
 
@@ -274,4 +284,4 @@ const mapStateToProps = (state) => ({
   tax: state.tax,
 });
 
-export default connect(mapStateToProps, { loadUser, calaculatePit, logout, paystackPayment, taxTypes })(Dashboard);
+export default connect(mapStateToProps, { loadUser, calaculatePit, logout, taxTypes })(Dashboard);
