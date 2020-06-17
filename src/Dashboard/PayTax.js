@@ -102,11 +102,9 @@ const PayTax = ({ calaculatePit, loadUser, taxTypes, auth: { user }, tax, paysta
             <p></p>
             <div className="card-deck">
               <div className="card shadow-sm mb-5 bg-white rounded">
-                <div className="card-header">Make Payment</div>
+                <div className="card-header">Personal Income Tax (PIT)</div>
                 <div className="card-body">
                   <div className="card-text">
-                    <h6>Personal Income Tax (PIT)</h6>
-                    <hr />
                     <form onSubmit={(e) => onSubmit(e)}>
                       <p>Add or Update your income.</p>
                       <div className="input-group">
@@ -152,9 +150,13 @@ const PayTax = ({ calaculatePit, loadUser, taxTypes, auth: { user }, tax, paysta
                     <br />
                     <br />
                   </div>
+                </div>
+              </div>
+            
+              <div className="card shadow-sm mb-5 bg-white rounded">
+                <div className="card-header">Others</div>
+                <div className="card-body">
                   <div className="card-text">
-                    <h6>Others</h6>
-                    <hr />
                     <div className="input-group">
                       <select
                         name="selectothers"
