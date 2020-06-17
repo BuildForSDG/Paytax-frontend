@@ -9,10 +9,11 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import LandingPage from './LandingPage/LandingPage';
 import Dashboard from './Dashboard/Index';
 import Alert from './Alert/Alert';
-import Success from './LandingPage/Success';
 import { loadUser } from './actions/auth';
 import setAuthToken from './Utils/setAuthToken';
 import PrivateRoute from './routing/PrivateRoute';
+import PayTax from './Dashboard/PayTax';
+import PaymentHistory from './Dashboard/PaymentHistory';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -44,7 +45,8 @@ const App = () => {
           <div className="App">
             <Switch>
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
-              <Route path="/success" exact component={Success} />
+              <Route path="/paytax" exact component={PayTax} />
+              <Route path="/paymenthistory" exact component={PaymentHistory} />
               <Route path="/" exact component={LandingPage} />
             </Switch>
           </div>

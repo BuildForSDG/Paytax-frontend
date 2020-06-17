@@ -14,3 +14,4 @@ export const CALCULATE_PIT = 'CALCULATE_PIT';
 export const TAX_TYPES = 'TAX_TYPES';
 export const TAX_ERROR = 'TAX_ERROR';
 export const PAYSTACK_PAYMENT = 'PAYSTACK_PAYMENT';
+export const PAYMENT_HISTORY = 'PAYMENT_HISTORY';

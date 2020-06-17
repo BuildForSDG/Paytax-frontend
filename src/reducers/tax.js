@@ -1,14 +1,15 @@
-import { CALCULATE_PIT, TAX_TYPES, TAX_ERROR, PAYSTACK_PAYMENT } from '../actions/types';
+import { CALCULATE_PIT, TAX_TYPES, TAX_ERROR, PAYSTACK_PAYMENT, PAYMENT_HISTORY } from '../actions/types';
 
 const initialState = {
   taxtypes: [],
   pit: null,
   paystack: null,
   loading: true,
+  paymenthistory: [],
   error: {}
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -28,6 +29,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         pasystack: payload,
+        loading: false
+      };
+    case PAYMENT_HISTORY:
+      return {
+        ...state,
+        paymenthistory: payload,
         loading: false
       };
     case TAX_ERROR:
