@@ -83,6 +83,11 @@ const Dashboard = ({ loadUser, auth: { user }, tax, paymentHistory }) => {
                       <button type="submit" className="btn btn-primary">
                         View More
                       </button>
+                    </Link>{' '}
+                    <Link to="/paytax">
+                      <button type="submit" className="btn btn-primary">
+                       Make Payment
+                      </button>
                     </Link>
                   </div>
                 </div>
