@@ -12,7 +12,7 @@ import {
 import setAuthToken from '../Utils/setAuthToken';
 import { setAlert } from './alert';
 
-const url = 'https://paytax-app.herokuapp.com/api/v1/user';
+const url = 'https://paytax-app.herokuapp.com/api/v1/users';
 
 export const loadUser = () => async dispatch => {
   
